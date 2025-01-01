@@ -24,6 +24,10 @@ cloudinary.config({
 const storage = multer.diskStorage({}); // object empty because i dont want anything to store locally in disk
 const upload = multer({ storage });
 
+app.get("/", (req, res) => {
+  res.send("Hello images!");
+});
+
 //api endpoint
 app.post("/upload", upload.single("image"), async (req, res) => {
   try {
